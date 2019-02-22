@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<!--
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+</head>
+
+-->
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+   
+</head>
+
+
+<body>
+   <div class="row main_header" style="">
+   	
+   	<div class="col-12">
+   	<h1 class="center_title header_title" style="">
+		E-Learning System
+  		<br>
+  		SMART TV 
+   		
+   		
+   	</h1>
+   	</div>
+   </div>
+   
+   <div class="row">
+   	
+   	<div class="col-lg-6 offset-lg-1 main_bar" >
+   		<div class="row centertitleRow" >
+   			<div class="col-12">
+   		
+   		<h1 class="center_title">Welcome, Please login to continue</h1>
+		</div>
+       </div>
+        
+        <div id="firebaseui-auth-container" style="margin-top: 50px;"></div>
+        <div id="loader">Loading...</div>
+   		
+   		<!--  
+		<input type="button" onClick="change()" value="HI" >
+		<div>
+			<a href="up" id="Up" focusable>UP</a>
+			<a href="down" id="Down" focusable>DOWN</a>
+
+			<input type="button" onclick="change()" value="Click-Me">
+		</div>-->
+   	
+   	</div>
+   	
+   	<div  class="col-lg-3 offset-lg-1 main-page-right-side-bar">
+   		
+   		<div class="row centertitleRow" >
+   			<div class="col-12">
+   			<h1 class="center_title" >List of top courses</h1>
+   			</div>
+   			
+   		</div>
+   		<div class="row">
+   		<div id="ParentDiv" class="col-12" style="height: 520px; overflow: hidden;">
+   			
+   			</div>
+   		
+   		
+   		
+   		</div>
+   		
+   	</div>
+   	
+   </div>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+    
+    <script type="text/javascript">
+		   $.caph.focus.activate(function(nearestFocusableFinderProvider, controllerProvider) {
+				controllerProvider.onFocused(function(event, originalEvent) {
+					//console.log(originalEvent['key']);
+					$(event.currentTarget).css({
+						opacity: 1
+					});
+				});
+
+				controllerProvider.onBlurred(function(event, originalEvent) {
+					//console.log(originalEvent['key']);
+					$(event.currentTarget).css({
+						opacity: 0.5
+					});
+				});
+
+				controllerProvider.onSelected(function(event, originalEvent){
+				 var idofObject = $(event.currentTarget).attr('id');
+				 console.log(idofObject);
+				
+				// console.log(originalEvent['key']);
+					});	
+			});
+
+			function change(){
+			sessionStorage.setItem("student","Hi this is working");
+			window.window.location.href = "userpage.html";
+			}
+   </script>
+    
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+	<script src="js/fireBase.js"></script>
+	<script src="js/login.js"></script>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<!-- This is for XAPI
+	<script type="text/javascript" src="js/cryptojs_v3.1.2.js"></script>  
+    <script type="text/javascript" src="js/xapiwrapper.min.js"></script> 
+    
+    <script type="text/javascript" src="js/xpi.js"></script>
+   -->
+   
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

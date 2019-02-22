@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<!-- 
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head> -->
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+   
+</head>
+
+<body>
+   <div class="row main_header" style="height: 100px; color: white" >
+   	<div  style="margin-top: 30px; margin-left: 30px;" class="col-lg-1">
+   		<a id="backBtn" focusable onclick="back()" href="#" class="previous round link">&#8249;</a>
+   		<script>
+		
+		function back(){
+		try {
+				var r = confirm("Press Ok to back the user page");
+					if (r == true) {
+				 window.history.back();
+					 } else {
+							console.log("You pressed Cancel!");
+									  }
+					} catch (ignore) {
+				}
+		}
+		</script>
+   		
+   	</div>
+   	
+   	<div class="col-lg-10" style="margin-left: -30px">
+   	<h4 class="center_title header_title" style="font-size: 30px">
+		E-Learning System
+  		</br>
+  		SMART TV 
+   		
+   		
+   	</h4>
+   	</div>
+   	<div class="col-lg-2" style="margin-left: -250px; margin-top: 30px;">
+   	<h5 style="color: white; font-weight: 700">
+		Welcome </br> <span id="studentName">??</span>
+   	</h5>
+	</div>
+  	<div class="col-lg-2" style="margin-left: 300px; margin-top: -300px; color: black">
+   <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-asterisk"></span> Asterisk
+        </a>
+	</div>
+   	
+   </div>
+   
+   <div class="row">
+   	
+   	
+   	<div class="main-page-right-side-bar col-lg-3 offset-lg-1" style=" margin-top:50px; height: 850px">
+   		<div class="col-lg-12 centertitleRow">
+   		
+   		<h2 id="CourseNameForList" class="center_title" style="margin-top:-30px; margin-bottom: 20px;">Videos list</h2>
+		</div>
+  		
+  		<div id="videoParent" class="list-group">
+  		
+  		
+			  
+		</div>
+   		
+   		
+   		
+   	</div>
+   	
+   	<div class="col-lg-7  main_bar" style=" margin-top:50px; height: 850px; margin-left: 30px">
+   		<div class="row " >
+   			<div class="col-lg-12 centertitleRow">
+   		
+   		<h2 class="center_title" style="margin-top:-30px;">Video Player</h2>
+		</div>
+     
+     
+      <div id ="VideoPlayer" class="row" style="background-color: transparent; height: 720px; margin-left: 25px; margin-right: 20px">
+      	
+				<video id="myVideo" width="1080" height="720" poster="img/1395136_3f8a_3.jpg" controls autoplay>
+		  <source src="" type="video/mp4">
+		  <source src="movie.ogg" type="video/ogg">
+		</video>
+      	
+      </div>
+       </div>
+        
+   		
+   	
+   	</div>
+
+   </div>
+  <script>
+	$(document).ready(function(){
+		$.caph.focus.activate(function(nearestFocusableFinderProvider, controllerProvider) {
+	        controllerProvider.onFocused(function(event, originalEvent) {
+	       
+	        	$(event.currentTarget).css({
+					transform: 'scale(1.1)'
+				});
+	        });
+	   
+	        controllerProvider.onBlurred(function(event, originalEvent) {
+	        	$(event.currentTarget).css({
+					transform: 'scale(1)'
+				});
+	        });
+
+	 	    controllerProvider.onSelected(function(event, originalEvent){
+	 	 		 
+			       var id =  $(event.currentTarget).attr('id');
+			      
+			       console.log(id);
+			       
+			       switch(id){
+				   
+				   case('backBtn') : try {
+									var r = confirm("Press Ok to back the user page, the you can see your courses");
+									  if (r == true) {
+										  window.location.replace("userpage.html");
+									  } else {
+									   console.log("You pressed Cancel!");
+									  }
+									} catch (ignore) {
+									}; break;
+									
+				   case ('unrollBtn'): unregisterFromCourse(); break;
+				   default: changeVideoSourse(id); break;
+				   
+				   }
+			         
+			       
+			});
+	    });	
+});
+ </script>
+    
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+	<script src="js/fireBase.js"></script>	
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>-->
+ 
+
+<!--This is for XAPI-->
+<script type="text/javascript" src="js/cryptojs_v3.1.2.js"></script> 
+    <script type="text/javascript" src="js/xapiwrapper.min.js"></script> 
+    <script type="text/javascript" src="js/xpi.js"></script>
+<!--This is for XAPI-->    
+    
+<script type="application/javascript" src="js/videopage.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

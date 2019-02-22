@@ -1,0 +1,26 @@
+{
+  "Courses" : {
+    "Course1" : {
+      "CourseLecturer" : "Mr.Bean",
+      "CourseName" : "Math01",
+      "CourseTotlalDuration" : 201,
+      "StudentList" : {
+        "Id1" : 100001,
+        "Id2" : 100002,
+        "Id3" : 100003
+      },
+      "VidoList" : {
+        "Video1" : "www.youtube1.com",
+        "Video2" : "www.youtube2.com",
+        "Video3" : "www.youtube3.com"
+      }
+    }
+  },
+  "Students" : {
+    "Student2" : {
+      "BirthDate" : "03/05/2018",
+      "Name" : "Reza Bagheri",
+      "UserID" : "Stud0200"
+    }
+  }
+}

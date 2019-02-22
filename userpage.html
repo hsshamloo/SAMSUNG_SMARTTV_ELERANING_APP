@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<!--  
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  
+</head>
+-->
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <!-- include CAPH 3.1.0 default package -->
+    <link href="lib/caph/3.1.0/caph.min.css" rel="stylesheet" type="text/stylesheet">
+
+    <!-- include jQuery file (you can use jQuery in your environment) -->
+    <script src="lib/caph/3.1.0/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+
+    <!-- include the CAPH Package for jquery -->
+    <script src="lib/caph/3.1.0/caph-jquery.min.js" type="text/javascript"></script>
+   
+</head>
+
+<body>
+   <div class="row main_header" style="height: 100px; color: white" >
+   	<div  style="margin-top: 30px; margin-left: 30px;" class="col-lg-1">
+   		<a focusable id="backBtn" onclick="back()" href="#" class="previous round link">&#8249;</a>
+   		<script>
+		
+		function back(){
+			try {
+									var r = confirm("Press Ok to back the main page");
+									  if (r == true) {
+										  window.history.back();
+									  } else {
+									   console.log("You pressed Cancel!");
+									  }
+									} catch (ignore) {
+									}
+			
+		}
+		
+		</script>
+   		
+   	</div>
+   	
+   	<div class="col-lg-10" style="margin-left: -30px">
+   	<h4 class="center_title header_title" style="font-size: 30px">
+		E-Learning System
+  		</br>
+  		SMART TV 
+   		
+   		
+   	</h4>
+   	</div>
+   	<div class="col-lg-2" style="margin-left: -250px; margin-top: 30px;">
+   	<h5 style="color: white; font-weight: 700">
+		Welcome </br> <span id="studentName">??</span>
+   	</h5>
+	</div>
+  	<div class="col-lg-2" style="margin-left: 300px; margin-top: -300px; color: black">
+   <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-asterisk"></span> Asterisk
+        </a>
+	</div>
+   	
+   </div>
+   
+   <div class="row">
+   	
+   	<div class="col-lg-10 offset-lg-1 main_bar" style=" margin-top:50px; height: 850px">
+   		<div class="row centertitleRow" >
+   			<div class="col-lg-12">
+   		
+   		<h2 class="center_title" style="margin-top: -20px; margin-bottom: 20px;">My Registred Courses</h2>
+		</div>
+     </div>
+      <div id ="MyCourseList" class="row" style="margin-left: 50px; margin-right: 50px">
+      	
+      	
+      </div>
+      <div class="row centertitleRow" >
+   			<div class="col-lg-12">
+   		
+   		<h2 class="center_title" style="margin-top: -20px; margin-bottom: 20px;">Available Courses</h2>
+		</div>
+     </div>
+       <div id ="AvailableCourseList" class="row" style="margin-left: 50px; margin-right: 50px">
+      	
+      	
+      </div>
+        
+   		
+   	
+   	</div>
+
+   </div>
+  
+     <script>
+	$(document).ready(function(){
+		$.caph.focus.activate(function(nearestFocusableFinderProvider, controllerProvider) {
+	        controllerProvider.onFocused(function(event, originalEvent) {
+	       
+	        	$(event.currentTarget).css({
+					transform: 'scale(1.2)'
+				});
+	        });
+	   
+	        controllerProvider.onBlurred(function(event, originalEvent) {
+	        	$(event.currentTarget).css({
+					transform: 'scale(1)'
+				});
+	        });
+
+	 	    controllerProvider.onSelected(function(event, originalEvent){
+	 	 		 
+			       var id =  $(event.currentTarget).attr('id');
+			      
+			       console.log(id);
+			        switch(id){
+				   
+				   case('backBtn') : try {
+									var r = confirm("Press Ok to back the main page, You will be Sign-out");
+									  if (r == true) { window.history.back();} 
+									  else {console.log("You pressed Cancel!");}
+									} catch (ignore) {}; break;
+									
+				   case ('unrollBtn'): unregisterFromCourse(); break;
+				   default: saveCourseNameToSessionStorage(id);
+				       location.replace("videopage.html"); break;
+				   
+				   }
+			});
+	    });	
+});
+ </script>
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+	<script src="js/fireBase.js"></script>	
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--  <script type="text/javascript" src="js/index.js"></script>-->
+<script type="application/javascript" src="js/userpage.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
